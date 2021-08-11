@@ -4,7 +4,7 @@ ENV TINI_VERSION=v0.19.0
 ENV KUBESEAL_VERSION=v0.16.0
 ENV KUSTOMIZE_VERSION=v4.2.0
 
-ADD https://github.com/krallin/tini/releases/download/$TINI_VERSION/tini /bin/tini
+ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /bin/tini
 ADD bin/entrypoint.sh /bin/entrypoint
 
 RUN dnf install -y git hostname jq python3 python3-pip python3-pyyaml && \
@@ -13,11 +13,11 @@ RUN dnf install -y git hostname jq python3 python3-pip python3-pyyaml && \
   chmod +x /bin/tini /bin/entrypoint && \
   rm -rf /var/cache/dnf
 
-RUN curl -LOJ https://github.com/bitnami-labs/sealed-secrets/releases/download/$KUBESEAL_VERSION/kubeseal-linux-amd64 && \
+RUN curl -LOJ https://github.com/bitnami-labs/sealed-secrets/releases/download/${KUBESEAL_VERSION}/kubeseal-linux-amd64 && \
   mv kubeseal-linux-amd64 /bin/kubeseal && \
   chmod +x /bin/kubeseal
 
-RUN curl -LOJ https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2F$KUSTOMIZE_VERSION/kustomize_$KUSTOMIZE_VERSION_linux_amd64.tar.gz && \
+RUN curl -LOJ https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2F${KUSTOMIZE_VERSION}/kustomize_${KUSTOMIZE_VERSION}_linux_amd64.tar.gz && \
   tar -xzf kustomize*.tar.gz && \
   mv kustomize /bin/kustomize && \
   rm -f kustomize*.tar.gz
