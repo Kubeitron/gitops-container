@@ -4,7 +4,7 @@ on:
   push:
 
 jobs:
-  build:
+  test:
     container: ghcr.io/kubeitron/gitops-container:main
     runs-on: ubuntu-latest
 
@@ -16,4 +16,5 @@ jobs:
           echo "Test"
           ansible-playbook --version
           ls -lash
+          pwd
 
