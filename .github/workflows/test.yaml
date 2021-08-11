@@ -17,4 +17,6 @@ jobs:
           ansible-playbook --version
           ls -lash
           pwd
+          kubeseal --version
+          kustomize version
 
