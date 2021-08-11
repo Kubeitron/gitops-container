@@ -5,8 +5,8 @@ on:
 
 jobs:
   build:
-
-    runs-on: ghcr.io/kubeitron/gitops-container:main
+    container: ghcr.io/kubeitron/gitops-container:main
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
