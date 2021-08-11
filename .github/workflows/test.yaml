@@ -1,0 +1,19 @@
+name: Test
+
+on:
+  push:
+
+jobs:
+  build:
+
+    runs-on: ghcr.io/kubeitron/gitops-container:main
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Test
+        run: |
+          echo "Test"
+          ansible-playbook --version
+          ls -lash
+
